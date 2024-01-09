@@ -15,7 +15,7 @@ Padding="0,10,0,10">
     HeightRequest="50"
     WidthRequest="100">
     <Image.GestureRecognizers>
-        <TapGestureRecognizer Tapped="ClickImg" />
+        <TapGestureRecognizer Command="{Binding Volver}" />
     </Image.GestureRecognizers>
  </Image>
 
@@ -30,11 +30,11 @@ Padding="0,10,0,10">
 
         </HorizontalStackLayout>
 
-        <Label  x:Name="txtSolicitud" IsVisible="false" Text="Solicitudes Pendientes" Margin="0,20,0,10" HorizontalOptions="CenterAndExpand" VerticalOptions="Start" FontAttributes="Bold" FontSize="25" />
-            
+            <Label  x:Name="txtSolicitud" IsVisible="{Binding mostrarTextoPendiente}" Text="Solicitudes Pendientes" Margin="0,20,0,10" HorizontalOptions="CenterAndExpand" VerticalOptions="Start" FontAttributes="Bold" FontSize="25" />
 
-        
-        <ListView x:Name="listastatus" RowHeight="80" ItemSelected="OnClickShowDetails">
+
+
+            <ListView x:Name="listastatus" RowHeight="80" ItemsSource="{Binding AnimalesP}" ItemSelected="OnClickShowDetails">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <ViewCell>
@@ -61,9 +61,9 @@ Padding="0,10,0,10">
 
         <BoxView Color="LightGrey" HeightRequest="1.5" HorizontalOptions="FillAndExpand" Margin="20,10,20,0"></BoxView>
         <Label Text="Tus animalitos Adoptados" Margin="0,20,0,10" HorizontalOptions="CenterAndExpand" VerticalOptions="Start" FontAttributes="Bold" FontSize="25" />
-        <Label x:Name="txtnoAnimales" Text="No tienes animales adoptados" HorizontalOptions="Center" FontSize="14" TextColor="Red" IsVisible="false" />
+            <Label x:Name="txtnoAnimales" Text="No tienes animales adoptados" HorizontalOptions="Center" FontSize="14" TextColor="Red" IsVisible="{Binding NoAnimal}" />
 
-        <ListView x:Name="listaadoptados" RowHeight="80" ItemSelected="OnClickShowDetails">
+            <ListView x:Name="listaadoptados" RowHeight="80" ItemsSource="{Binding AnimalesS}" ItemSelected="OnClickShowDetails">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <ViewCell>
